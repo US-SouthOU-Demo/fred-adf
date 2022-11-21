@@ -15,7 +15,7 @@
 				},
 				"userProperties": [],
 				"typeProperties": {
-					"url": "https://google.com",
+					"url": "https://api.github.com/zen",
 					"method": "GET",
 					"headers": {
 						"User-Agent": "Awesome-GitHub-Demo"
