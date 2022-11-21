@@ -23,4 +23,4 @@ jobs:
         run: npm install
       
       - name: Validate
-        run: npm run start validate $GITHUB_WORKSPACE /subscriptions/${{ secrets.SUBSCRIPTION_ID }}/resourceGroups/${{ secrets.RESOURCE_GROUP_NAME }}/providers/Microsoft.DataFactory/factories/${{ secrets.FACTORY_NAME }}
+        run: npm run build validate ${{ env.GITHUB_WORKSPACE }} /subscriptions/${{ secrets.SUBSCRIPTION_ID }}/resourceGroups/${{ secrets.RESOURCE_GROUP_NAME }}/providers/Microsoft.DataFactory/factories/${{ secrets.FACTORY_NAME }}
