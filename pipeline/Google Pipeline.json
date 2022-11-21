@@ -3,7 +3,7 @@
 	"properties": {
 		"activities": [
 			{
-				"name": "Ping Google",
+				"name": "Zen",
 				"type": "WebActivity",
 				"dependsOn": [],
 				"policy": {
