@@ -15,7 +15,7 @@ jobs:
       - uses: actions/checkout@v3
 
       - name: Setup Node.js environment
-        uses: actions/setup-node@v2.4.0
+        uses: actions/setup-node@v3
         
       - name: Install ADF package
         run: npm install
@@ -24,7 +24,7 @@ jobs:
         run: npm run build export ${GITHUB_WORKSPACE} /subscriptions/${{ secrets.SUBSCRIPTION_ID }}/resourceGroups/${{ secrets.RESOURCE_GROUP_NAME }}/providers/Microsoft.DataFactory/factories/${{ secrets.FACTORY_NAME }} "ArmTemplate"
         
       - name: Upload ARM Template as Artifact
-        uses: actions/upload-artifact@v2.2.4
+        uses: actions/upload-artifact@v3
         with:
           name: ArmTemplate
           path: ArmTemplate
