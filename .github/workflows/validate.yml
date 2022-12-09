@@ -6,6 +6,13 @@ on:
 
   workflow_dispatch:
 
+# Relies on the following secrets being configured in GitHub
+# - secrets.SUBSCRIPTION_ID
+# - secrets.RESOURCE_GROUP_NAME
+# - secrets.FACTORY_NAME
+env:
+  dataFactoryId: '/subscriptions/${{ secrets.SUBSCRIPTION_ID }}/resourceGroups/${{ secrets.RESOURCE_GROUP_NAME }}/providers/Microsoft.DataFactory/factories/${{ secrets.FACTORY_NAME }}'
+
 jobs:
   validate:
     runs-on: ubuntu-latest
@@ -15,10 +22,10 @@ jobs:
       - uses: actions/checkout@v3
 
       - name: Setup Node.js environment
-        uses: actions/setup-node@v2.4.0
+        uses: actions/setup-node@v3
         
       - name: Install ADF package
         run: npm install
       
       - name: Validate
-        run: npm run build validate ${GITHUB_WORKSPACE} /subscriptions/${{ secrets.SUBSCRIPTION_ID }}/resourceGroups/${{ secrets.RESOURCE_GROUP_NAME }}/providers/Microsoft.DataFactory/factories/${{ secrets.FACTORY_NAME }}
+        run: npm run build validate ${GITHUB_WORKSPACE} ${{ secrets.dataFactoryId }}
